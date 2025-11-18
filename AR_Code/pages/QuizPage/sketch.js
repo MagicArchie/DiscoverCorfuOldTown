@@ -69,7 +69,7 @@ function preload() {
 		  } else if (lastPage == 'Video5') {
 			currentPairAudio = loadSound('../../../assets/narrator/greek/NrtP7.mp3');
 		  } else if (lastPage == 'Video12') {
-			currentPairAudio = loadSound('../../../assets/narrator/greek/NrtP8.mp3');
+			currentPairAudio = loadSound('../../../assets/narrator/greek/NrtP9.mp3');
 		  }
 	  } else {
 		  if (lastPage == 'Video1') {
@@ -83,7 +83,7 @@ function preload() {
 		  } else if (lastPage == 'Video5') {
 			currentPairAudio = loadSound('../../../assets/narrator/english/NrtP7.mp3');
 		  } else if (lastPage == 'Video12') {
-			currentPairAudio = loadSound('../../../assets/narrator/english/NrtP8.mp3');
+			currentPairAudio = loadSound('../../../assets/narrator/english/NrtP9.mp3');
 		  }
 	  }
   }
