@@ -169,7 +169,7 @@ if (finalRevealText && typeof finalRevealText === 'object') {
   if (selectedLanguage === 'gr') {
     text(questionText, (landscapeW - textBoxWidth) / 2, landscapeH * 0.09, textBoxWidth);
   } else {
-    text(questionText, (landscapeW - textBoxWidth) / 2, landscapeH * 0.065, textBoxWidth);
+    text(questionText, (landscapeW - textBoxWidth) / 2, landscapeH * 0.040, textBoxWidth);
   }
   
   // Draw answer boxes
