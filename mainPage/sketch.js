@@ -52,6 +52,7 @@ let narratorMargin = 12;
 let narratorScale = 0.45;         // width = canvasWidth * narratorScale
 let narratorRightTargetX = 0;
 let narratorLeftTargetX  = 0;
+let greekExtraPauseDone = false;  // ensures extra 5s is applied once
 
 
 function preload() {
@@ -829,6 +830,9 @@ function startNarratorImage(img = narratorImg, pauseMs = narratorPauseMs) {
   narratorPauseMs = pauseMs;
   narratorState = 'movingRight';
   narratorActive = true;
+  
+  //reset extra pause each time the narrator sequence starts
+  greekExtraPauseDone = false;
 }
 
 function updateNarratorImage() {
@@ -847,9 +851,15 @@ function updateNarratorImage() {
       narratorPauseUntil = millis() + narratorPauseMs;
     }
   } else if (narratorState === 'paused') {
-    if (millis() >= narratorPauseUntil) {
-      narratorState = 'movingLeft';
-    }
+	  //Add extra 5s pause once if language is Greek
+	  if (!greekExtraPauseDone && selectedLanguage === 'gr') {
+		narratorPauseUntil += 5000; // add 5 seconds
+		greekExtraPauseDone = true;
+	  }
+
+	  if (millis() >= narratorPauseUntil) {
+		narratorState = 'movingLeft';
+	  }
   } else if (narratorState === 'movingLeft') {
 	  narratorX -= narratorSpeed * dt;
 	  if (narratorX <= narratorLeftTargetX) {
